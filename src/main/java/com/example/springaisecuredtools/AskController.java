@@ -10,7 +10,7 @@ public class AskController {
 
   private final ChatClient chatClient;
 
-  public AskController(ChatClient.Builder chatClientBuilder, MyTools myTools) {
+  public AskController(ChatClient.Builder chatClientBuilder, MyToolsSecured myTools) {
     this.chatClient = chatClientBuilder
         .defaultTools(myTools)
         .build();

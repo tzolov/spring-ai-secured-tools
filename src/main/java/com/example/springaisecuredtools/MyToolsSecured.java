@@ -11,12 +11,14 @@ public class MyToolsSecured {
   private static final Logger log = org.slf4j.LoggerFactory.getLogger(MyToolsSecured.class);
 
   @PreAuthorize("hasRole('ROLE_USER')")
+  @Tool(name = "getWeather", description = "Gets the weather conditions for a given zipcode")
   public Weather getWeather(@ToolParam(description = "The zipcode") String zipcode) {
     log.info("Getting weather for " + zipcode);
     return new Weather("Sunny", "72");
   }
 
   @PreAuthorize("hasRole('ROLE_ADMIN')")
+  @Tool(name = "getSecretCode", description = "Gets the secret code")
   public Secrets getSecretCode(@ToolParam(description = "The name of the secret code to get") String secret) {
     log.info("Getting secret code");
     return new Secrets("DontTellAnyone: " + secret);
